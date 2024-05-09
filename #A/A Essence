@@ -1,0 +1,37 @@
+STL(Standard Template Library) : C++의 라이브러리 핵심 클래스로 크게 컨테이너, 반복자, 알고리즘 세가지가 있다.
+컨테이너(Container) : 자료구조를 표현한 클래스
+반복자(Iterator) : 컨테이너 원소에 대한 포인터
+알고리즘(Algorithm) : 템플릿 함수(특정 클래스에 포함되어 있는 멤버변수는 아니다.)
+
+Container의 종류
+vector
+deque
+list
+set
+map
+stack
+queue
+
+Iterator의 종류
+iterator
+const_iterator
+reverse_iterator
+const_reverse_iterator
+
+Algorithm의 종류
+copy
+merge
+random
+rotate
+equal
+min
+remove
+search
+find
+move
+replace
+sort
+max
+partition
+reverse
+swap
