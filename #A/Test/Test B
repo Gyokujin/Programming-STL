@@ -1,0 +1,73 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 책의 년도, 책이름, 저자 이름을 담은 Book 클래스를 만들고, vector<Book> v;로 생성한 벡터를 이용하여 책을 입고하고, 저자와 년도로 검색하는 프로그램을 작성하라.
+class Book
+{
+private:
+	int year;
+	string bookName;
+	string authorName;
+public:
+	Book(int y, string b, string a)
+	{
+		year = y;
+		bookName = b;
+		authorName = a;
+	}
+
+	bool SameCheck(string a, int y) 
+	{
+		if (a == authorName && y == year)
+		{
+			cout << "찾으려는 책의 이름은 " << bookName << "입니다." << endl;
+			return true;
+		}
+	}
+};
+
+int main()
+{
+	vector<Book> books;
+
+	for (int i = 0; i < 3; i++)
+	{
+		int thisYear;
+		string thisBookName;
+		string thisAuthorName;
+
+		cout << i + 1 << "번째 책을 기록합니다." << endl;
+		cout << "책의 년도를 입력하세요.";
+		cin >> thisYear;
+
+		cout << "책이름을 입력하세요.";
+		cin >> thisBookName;
+
+		cout << "저자 이름을 입력하세요.";
+		cin >> thisAuthorName;
+
+		Book thisBook(thisYear, thisBookName, thisAuthorName);
+		books.push_back(thisBook);
+	}
+
+	bool isContain = false;
+
+	string targetAuthorName;
+	cout << "찾으려는 책의 저자를 입력하세요.";
+	cin >> targetAuthorName;
+
+	int targetYear = 0;
+	cout << "찾으려는 책의 년도를 입력하세요.";
+	cin >> targetYear;
+
+	for (int i = 0; i < books.size(); i++)
+	{
+		isContain = books[i].SameCheck(targetAuthorName, targetYear);
+	}
+
+	if (!isContain)
+	{
+		cout << "찾으려는 책은 존재하지 않습니다." << endl;
+	}
+}
