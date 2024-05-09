@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+// vector : 가변 길이 배열을 구현한 제네릭 클래스로 배열과 유사하지만 원할때 크기 조절이 가능하다.
 int main()
 {
 	vector<int> v; // 정수만 삽입 가능한 벡터 생성
