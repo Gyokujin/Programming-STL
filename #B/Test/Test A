@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> v;
+
+void PrintVector()
+{
+	cout << "v의 원소 : ";
+	for (int i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+}
+
+int main()
+{
+
+	cout << "v에 1~3까지 삽입" << endl;
+
+	for (int i = 0; i < 3; i++)
+	{
+		v.push_back(i + 1);
+	}
+
+	vector<int>::iterator it = v.begin();
+	PrintVector();
+
+	cout << "\n\nv의 1번째 위치에 4 삽입\n" << endl;
+	v.insert(it + 1, 4);
+	PrintVector();
+
+	cout << "\n\nv의 마지막 원소 삭제\n";
+	v.pop_back();
+	PrintVector();
+
+	cout << "\n\nv의 맨 뒤에 6 삽입\n";
+	v.push_back(6);
+	PrintVector();
+
+	cout << "\n\nv 전체 원소 clear\n";
+	v.clear();
+	PrintVector();
+}
