@@ -1,0 +1,49 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+deque<int> dq;
+
+void ShowDeque()
+{
+	cout << "dq의 원소 : ";
+
+	for (int i = 0; i < dq.size(); i++)
+	{
+		cout << dq[i] << " ";
+	}
+
+	cout << endl;
+}
+
+int main()
+{
+	cout << "dq에 1~3까지 삽입" << endl;
+	for (int i = 0; i < 3; i++)
+	{
+		dq.push_back(i + 1);
+	}
+	ShowDeque();
+
+	deque<int>::iterator it = dq.begin();
+	cout << "\ndq의 1번째 위치에 4 삽입" << endl;
+	dq.insert(it + 1, 4);
+	ShowDeque();
+
+	cout << "\ndq의 첫번째와 마지막 원소 삭제" << endl;
+	it = dq.begin();
+	dq.erase(it);
+
+	it = dq.begin();
+	dq.erase(it + 2);
+	ShowDeque();
+
+	cout << "\ndq의 첫번째와 마지막 원소에 각각 5와 6 삽입" << endl;
+	dq.push_front(5);
+	dq.push_back(6);
+	ShowDeque();
+
+	cout << "\ndq 원소 전체 clear!" << endl;
+	dq.clear();
+	ShowDeque();
+}
