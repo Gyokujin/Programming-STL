@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// string 타입의 vector를 이용하여 문자열을 저장하는 벡터를 만드록, 5개의 이름을 입력 받아 사전(가나다 순)에서 가장 뒤에 나오는 이름을 출력하라
+int main()
+{
+	vector<string> vec;
+	string input = "";
+
+	cout << "5개의 이름을 입력 받습니다." << endl;
+	
+	for (int i = 0; i < 5; i++) 
+	{
+		cout << i + 1 << "번째 이름을 입력하세요.";
+		cin >> input;
+		vec.push_back(input);
+	}
+
+	cout << "이름 모음" << endl;
+	
+	for (int i = 0; i < vec.size(); i++)
+	{
+		cout << vec[i] << endl;
+	}
+
+	string correct = vec[0];
+
+	for (int i = 1; i < vec.size(); i++)
+	{
+		if (correct < vec[i])
+		{
+			correct = vec[i];
+		}
+	}
+
+	cout << "사전에서 가장 뒤에 나오는 이름은 " << correct << endl;
+}
