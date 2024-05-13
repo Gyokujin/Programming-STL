@@ -1,0 +1,36 @@
+#include <iostream>
+#include <list>
+#include <unordered_set>
+using namespace std;
+
+void RemoveDuplicates(list<int> &lst)
+{
+	unordered_set<int> uniqueSet;
+	list<int>::iterator it = lst.begin();
+	
+	while (it != lst.end())
+	{
+		if (uniqueSet.count(*it) == 0)
+		{
+			uniqueSet.insert(*it);
+			++it;
+		}
+		else 
+		{
+			it = lst.erase(it);
+		}
+	}
+
+	it = lst.begin();
+
+	/*for (it; it < lst.size(); it++)
+	{
+		cout << lst[i] << endl;
+	}*/
+}
+
+int main()
+{
+	list<int> lst = { 1,2,2,3,4,4,5 };
+	RemoveDuplicates(lst);
+}
