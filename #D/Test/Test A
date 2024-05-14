@@ -1,0 +1,35 @@
+#include <iostream>
+#include <set>
+using namespace std;
+
+// 사용자로부터 정수를 입력 받아 set에 저장하는 프로그램을 작성해보세요. 자용자가 0을 입력하기 전까지 계속해서 정수를 입력 받아 set에 저장하고,
+// 0을 입력하면 저장된 set의 모든 원소를 출력하는 프로그램을 작성해보세요.
+int main()
+{
+	set<int> numbers;
+	int input = 0;
+	set<int>::iterator it;
+
+	while (true)
+	{
+		cout << "정수를 입력하세요. 0을 입력하면 프로그램이 종료됩니다." << endl;
+		cin >> input;
+
+		if (input == 0)
+		{
+			cout << "프로그램을 종료합니다." << endl;
+			break;
+		}
+		else
+		{
+			numbers.insert(input);
+		}
+	}
+
+	it = numbers.begin();
+
+	for (it; it != numbers.end(); it++)
+	{
+		cout << *it << endl;
+	}
+}
