@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	string text, pattern;
+
+	cout << "문자열을 입력하세요:";
+	getline(cin, text);
+	cout << "검색할 패턴을 입력하세요:";
+	getline(cin, pattern);
+
+	auto it = search(text.begin(), text.end(), pattern.begin(), pattern.end());
+
+	if (it != text.end())
+	{
+		cout << "패턴이 문자열에서 발견된 위치 : " << (it - text.begin()) << endl;
+	}
+	else
+	{
+		cout << "입력한 패턴이 문자열에서 발견되지 않았습니다." << endl;
+	}
+}
