@@ -40,7 +40,7 @@ int main()
 		}
 	}
 
-	if (equal(numbersA.begin(), numbersA.end(),numbersB.begin()))
+	if (numbersA.size() == numbersB.size() && equal(numbersA.begin(), numbersA.end(), numbersB.begin()))
 	{
 		cout << "두 벡터는 같습니다." << endl;
 	}
