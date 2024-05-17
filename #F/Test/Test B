@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// 벡터의 모든 요소에 대해 특정 작업을 수행하는 프로그램을 작성해보세요.
+// 1. 사용자로부터 정수를 입력받아 벡터에 저장합니다. 2. for_each() 함수를 사용하여 벡터의 모든 요소에 대해 특정 작업을 수행합니다.
+// 3. 작업은 사용자가 입력한 정수를 기반으로 한 계산이나 처리를 포함할 수 있습니다. 4. 작업이 완료된 벡터를 출력합니다.
+
+void AddOne(int num)
+{
+	cout << ++num;
+}
+
+int main()
+{
+	vector<int> vec;
+	int input;
+
+	while (true)
+	{
+		cout << "저장할 정수를 입력하세요. 0을 입력시 저장이 종료됩니다.";
+		cin >> input;
+
+		if (input != 0)
+		{
+			vec.push_back(input);
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	for_each(vec.begin(), vec.end(), AddOne);
+	return 0;
+}
