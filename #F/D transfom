@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int Square(int num)
+{
+    return num * num;
+}
+
+int main()
+{
+    vector<int> vec1, vec2;
+    int input;
+
+	while (true)
+	{
+		cout << "저장할 정수를 입력하세요. 0을 입력시 저장이 종료됩니다.";
+		cin >> input;
+
+		if (input != 0)
+		{
+			vec1.push_back(input);
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	vec2.resize(vec1.size());
+	transform(vec1.begin(), vec1.end(), vec2.begin(), Square);
+
+	cout << "변환한 벡터 : ";
+	for (int i = 0; i < vec1.size(); i++)
+	{
+		cout << vec2[i] << ", ";
+	}
+}
