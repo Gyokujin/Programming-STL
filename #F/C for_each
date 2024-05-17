@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void Display(int num)
+{
+	cout << num << ", ";
+}
+
+int main()
+{
+	vector<int> vec;
+
+	for (int i = 0; i < 10; i++)
+	{
+		vec.push_back(i);
+	}
+
+	for_each(vec.begin(), vec.end(), Display);
+	return 0;
+}
