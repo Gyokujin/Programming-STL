@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+// 문자열로 이루어진 벡터가 주어집니다. 이 벡터를 알파벳 순으로 정렬하여 출력하세요.
+// 입력 예시 : ["banana", "apple", "cherry", "date"]
+// 출력 예시 : ["apple", "banana", "cherry", "date"]
+int main()
+{
+	vector<string> words;
+	words.push_back("banana");
+	words.push_back("apple");
+	words.push_back("cherry");
+	words.push_back("date");
+
+	cout << "정렬 전" << endl;
+
+	for (string word:words)
+	{
+		cout << word << "   ";
+	}
+
+	cout << endl << endl;
+
+	sort(words.begin(), words.end());
+	cout << "정렬 후" << endl;
+
+	for (string word : words)
+	{
+		cout << word << "   ";
+	}
+
+	cout << endl;
+}
