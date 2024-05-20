@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// numbers 벡터에서 값이 3인 모든 요소를 제거하는 코드를 작성해보세요.
+int main()
+{
+	vector<int> numbers = { 1,2,3,4,5,3,6,7,3,8 };
+
+	for (int num:numbers)
+	{
+		cout << num << " ";
+	}
+
+	cout << endl;
+
+	vector<int>::iterator it;
+	it = remove(numbers.begin(), numbers.end(), 3);
+	numbers.erase(it, numbers.end());
+
+	for (int num : numbers)
+	{
+		cout << num << " ";
+	}
+}
