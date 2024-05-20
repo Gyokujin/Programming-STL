@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// 정수로 이루어진 벡터가 주어집니다. 이 벡터에서 최소값과 최대값을 찾아 출력하세요.
+int main()
+{
+	vector<int> numbers;
+	for (int i = 0; i < 10; i++)
+	{
+		numbers.push_back(rand());
+	}
+
+	for (int num : numbers)
+	{
+		cout << num << " ";
+	}
+
+	vector<int>::iterator min = min_element(numbers.begin(), numbers.end());
+	vector<int>::iterator max = max_element(numbers.begin(), numbers.end());
+
+	cout << "최소값 : " << *min << ", 최대값 : " << *max;
+}
