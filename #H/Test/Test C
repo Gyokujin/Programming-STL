@@ -1,0 +1,13 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+// 주어진 문자열을 역순으로 출력하세요.
+int main()
+{
+	string input = "Hello, World!";
+	cout << input << endl;
+
+	reverse(input.begin(), input.end());
+	cout << input << endl;
+}
