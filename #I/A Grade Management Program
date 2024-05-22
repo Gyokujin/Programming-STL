@@ -1,0 +1,95 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <fstream>
+using namespace std;
+
+class Student
+{
+private:
+    string name;
+    int number;
+    int grade;
+    int level;
+
+    int kor, eng, math;
+    int total;
+    float average;
+
+public:
+    Student(string _name, int _number, int _kor, int _eng, int _math);
+    Student(string _name);
+    Student();
+    
+    void Calculate();
+    void GetStudent();
+    bool operator == (string key);
+};
+
+void Student::GetStudent()
+{
+    cout << "학번을 입력하세요 >>";
+    cin >> number;
+    cout << "이름을 입력하세요 >>";
+    cin >> name;
+    cout << "국어 점수를 입력하세요 >>";
+    cin >> kor;
+    cout << "영어 점수를 입력하세요 >>";
+    cin >> eng;
+    cout << "수학 점수를 입력하세요 >>";
+    cin >> math;
+    Calculate();
+}
+
+void PrintWindow()
+{
+
+    cout << "****************************************************************************" << endl;
+    cout << "    1.입력    2.삭제    3.검색    4.출력    5.로드    6.저장    7.종료" << endl;
+    cout << "메뉴 선택(1~7) >> ";
+}
+
+void Input()
+{
+    cout << " >> 데이터 입력 작업 <<" << endl;
+}
+
+int main()
+{
+    int input;
+    cout << "    성적 관리 프로그램" << endl;
+
+    while (true)
+    {
+        PrintWindow();
+        cin >> input;
+
+        switch (input)
+        {
+        case 1:
+            Input();
+            break;
+
+        case 2:
+            break;
+
+        case 3:
+            break;
+
+        case 4:
+            break;
+
+        case 5:
+            break;
+
+        case 6:
+            break;
+
+        case 7:
+            break;
+        }
+    }
+
+    return 0;
+}
