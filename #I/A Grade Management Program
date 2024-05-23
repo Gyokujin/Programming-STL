@@ -18,7 +18,15 @@ private:
     float average;
 
 public:
-    Student(string _name, int _number, int _kor, int _eng, int _math);
+    Student(int _number, string _name, int _kor, int _eng, int _math)
+    {
+        number = _number;
+        name = _name;
+        kor = _kor;
+        eng = _eng;
+        math = _math;
+    }
+
     Student(string _name);
     Student();
     
@@ -27,32 +35,37 @@ public:
     bool operator == (string key);
 };
 
-void Student::GetStudent()
+int PrintWindow()
 {
+    int input = 0;
+    cout << "****************************************************************************" << endl;
+    cout << "    1.입력    2.삭제    3.검색    4.출력    5.로드    6.저장    7.종료" << endl;
+    cout << "메뉴 선택(1~7) >> ";
+    cin >> input;
+    cout << endl;
+    return input;
+}
+
+void Input()
+{
+    int number, kor, eng, math;
+    string name;
+    cout << " >> 데이터 입력 작업 <<" << endl;
+
     cout << "학번을 입력하세요 >>";
     cin >> number;
+
     cout << "이름을 입력하세요 >>";
     cin >> name;
+
     cout << "국어 점수를 입력하세요 >>";
     cin >> kor;
     cout << "영어 점수를 입력하세요 >>";
     cin >> eng;
     cout << "수학 점수를 입력하세요 >>";
     cin >> math;
-    Calculate();
-}
 
-void PrintWindow()
-{
-
-    cout << "****************************************************************************" << endl;
-    cout << "    1.입력    2.삭제    3.검색    4.출력    5.로드    6.저장    7.종료" << endl;
-    cout << "메뉴 선택(1~7) >> ";
-}
-
-void Input()
-{
-    cout << " >> 데이터 입력 작업 <<" << endl;
+    Student student(number, name, kor, eng, math);
 }
 
 int main()
@@ -62,8 +75,7 @@ int main()
 
     while (true)
     {
-        PrintWindow();
-        cin >> input;
+        int input = PrintWindow();
 
         switch (input)
         {
