@@ -1,0 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <time.h>
+using namespace std;
+
+int RandomNumber();
+void Line();
+void Title();
+int BuyLotto();
+void ShowLotto(int lottoCount);
+void Line() 
+{
+	cout << "************************************************************************\n";
+}
+
+void Title()
+{
+	cout << "로또 복권 모의실험 프로그램\n";
+	Line();
+	cout << "1등 6개 숫자 일치 (보너스숫자 제외):총 상금은 1,800,000,000원\n";
+	cout << "2등 6개 숫자 중 5개 숫자 일치+1개 보너스 숫자 일치:";
+	cout << "총 상금은 100,000,000원\n";
+	cout << "3등 5개 숫자 일치 (보너스 숫자 제외):총 상금은 30,000,000원\n";
+	cout << "4등 4개 숫자 일치 (보너스 숫자 제외):총 상금은 12,000,000원\n";
+	cout << "5등 3개 숫자 일치 (보너스 숫자 제외):10,000원\n";
+	Line();
+}
+
+int BuyLotto() 
+{
+	int count = 0;
+	cout << "로또 개수 입력하세요. : ";
+	cin >> count;
+	return count;
+}
+
+void ShowLotto(int lottoCount)
+{
+	for (int i = 0; i < lottoCount; i++)
+	{
+		vector<int> curLotto;
+
+		for (int i = 0; i < 6; i++)
+		{
+			int num = 0;
+			num = RandomNumber();
+			cout << num << endl;
+		}
+	}
+}
+int RandomNumber()
+{
+
+	int randomNum = rand() % 46;
+	return randomNum;
+}
+
+
+int main()
+{
+	srand(time(NULL));
+	Title();
+	int count = BuyLotto();
+	ShowLotto(count);
+}
