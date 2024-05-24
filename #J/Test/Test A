@@ -23,8 +23,24 @@ int main()
 		}
 	}
 
-	for (auto& n : words)
+	if (curWord != " ")
 	{
-		cout << n.first << " : " << n.second << "회" << endl;
+		words[curWord]++;
 	}
+
+	string maxWord;
+	int maxCount = 0;
+
+	for (auto& word : words)
+	{
+		cout << word.first << " : " << word.second << "회" << endl;
+
+		if (maxCount < word.second)
+		{
+			maxWord = word.first;
+			maxCount = word.second;
+		}
+	}
+
+	cout << "\n가장 많이 나온 단어 : " << maxWord << ", " << maxCount << "회" << endl;
 }
