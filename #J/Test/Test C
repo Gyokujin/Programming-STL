@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+// 벡터를 사용하여 학생들의 성적을 저장하고, 이를 오름차순으로 정렬한 후 출력하는 프로그램을 작성하세요.
+int main()
+{
+	vector<int> scores;
+	int input;
+
+	while (true)
+	{
+		cin >> input;
+
+		if (input == 0)
+		{
+			break;
+		}
+
+		scores.push_back(input);
+	}
+
+	sort(scores.begin(), scores.end());
+
+	for (int num:scores)
+	{
+		cout << num << endl;
+	}
+}
