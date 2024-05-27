@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
+// 주어진 문자열 내에서 각 문자가 처음 등장하는 위치를 출력하세요.
+int main()
+{
+	string str = "hello world";
+	unordered_map<char, int> firstView;
+
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (firstView.find(str[i]) == firstView.end())
+		{
+			firstView[str[i]] = i;
+		}
+	}
+
+	for (auto& pair:firstView)
+	{
+		cout << pair.first << ":" << pair.second << endl;
+	}
+}
