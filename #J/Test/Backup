@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <map>
+using namespace std;
+
+int main()
+{
+	map<string, string> phoneBook;
+	string name;
+	string number;
+
+	while (true)
+	{
+		cout << "이름을 입력하세요. X 입력시 입력시 종료합니다. ";
+		cin >> name;
+
+		if (name == "X")
+		{
+			break;
+		}
+		
+		cout << "번호를 입력하세요. ";
+		cin >> number;
+
+		phoneBook.insert(name, number);
+	}
+
+	cout << "검색할 이름을 입력하세요 : ";
+	cin >> name;
+
+	if (phoneBook.find(name) != phoneBook.end())
+	{
+		cout << name << "의 연락처는 " << phoneBook[name] << endl;
+	}
+	else
+	{
+		cout << "검색한 이름의 연락처가 없습니다." << endl;
+	}
+}
