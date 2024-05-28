@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 벡터에 저장된 정수들 중에서 특정 값을 이분 탐색을 통해 찾는 프로그램을 작성하세요.
+int main()
+{
+	vector<int> numbers = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 };
+
+    int input;
+	int correct = 0;
+	int min = 0;
+	int max = numbers.size() - 1;
+
+    cout << "찾으려는 숫자를 입력하세요. 1, 3, 5, 7, 9, 11, 13, 15, 17, 19" << endl;
+    cin >> input;
+
+    while (min < max)
+    {
+        int mid = (min + max) / 2;
+        int number = numbers[mid];
+
+        if (number == input)
+        {
+            correct = mid;
+            break;
+        }
+        else if (number > input)
+        {
+            max = mid - 1;
+        }
+        else
+        {
+            min = mid + 1;
+        }
+    }
+
+    cout << "찾는 숫자 " << input << "은 " << correct << "번째 인덱스입니다." << endl;
+}
