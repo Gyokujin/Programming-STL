@@ -1,0 +1,30 @@
+#include <iostream>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+// 한 텍스트 파일에서 단어들의 빈도수를 계산하는 프로그램을 작성해보세요. 각 단어가 몇 번 등장하는지를 계산하고, 가장 많이 등장하는 단어와 그 빈도수를 출력하세요.
+int main()
+{
+	map<string, int> words;
+	string text = "this is a test this is only a test";
+	string curText;
+
+	for (int i = 0; i < text.size(); ++i)
+	{
+		if (text[i] == ' ')
+		{
+			words[curText]++;
+			curText = "";
+		}
+		else
+		{
+			curText += text[i];
+		}
+	}
+
+	for (auto pair : words)
+	{
+		cout << pair.first << " : " << pair.second << "회" << endl;
+	}
+}
