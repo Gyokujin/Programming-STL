@@ -1,0 +1,42 @@
+#include <iostream>
+#include <queue>
+#include <algorithm>
+using namespace std;
+
+// 고객 대기열을 관리하는 프로그램을 작성하세요. 고객이 도착하면 대기열에 추가하고, 고객을 서비스할 때는 대기열에서 제거하여 출력합니다.
+int main()
+{
+	queue<string> guest;
+	int inputInt;
+	string inputString;
+
+	while (true)
+	{
+		cout << "명령을 수행합니다. 1. 고객 대기열 추가 / 2. 고객 대기열 제거 / 3. 프로그램 종료" << endl;
+		cin >> inputInt;
+
+		if (inputInt == 1)
+		{
+			cout << "고객의 이름을 입력하세요. ";
+			cin >> inputString;
+			guest.push(inputString);
+		}
+		else if (inputInt == 2)
+		{
+			if (!guest.empty())
+			{
+				cout << guest.front() << "님 대기열에서 제거" << endl;
+				guest.pop();
+			}
+			else
+			{
+				cout << "대기열에 아무도 없습니다." << endl;
+			}
+		}
+		else
+		{
+			cout << "프로그램을 종료합니다." << endl;
+			break;
+		}
+	}
+}
