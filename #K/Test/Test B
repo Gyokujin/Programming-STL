@@ -1,0 +1,64 @@
+#include <iostream>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+// 리스트를 사용하여 간단한 텍스트 편집기를 구현하세요. 삽입, 삭제, 이동 등의 기능을 제공하여 사용자가 텍스트를 편집할 수 있도록 하세요.
+int main()
+{
+	list<string> texts;
+	int inputInt;
+	string inputString;
+
+	while (true)
+	{
+		cout << "명령을 입력하시오. (1. 문자 삽입, 2. 문자 삭제, 3. 문자 이동, 4. 문자 전체 출력, 이외의 숫자. 프로그램 종료)" << endl;
+		cin >> inputInt;
+
+		if (inputInt == 1)
+		{
+			cout << "삽입할 문자를 입력하세요.";
+			cin >> inputString;
+			texts.push_back(inputString);
+		}
+		else if (inputInt == 2)
+		{
+			cout << "삭제할 문자를 입력하세요.";
+			cin >> inputString;
+			texts.erase(find(texts.begin(), texts.end(), inputString));
+		}
+		else if (inputInt == 3)
+		{
+			cout << "이동할 문자를 입력하세요.";
+			cin >> inputString;
+
+			cout << "이동할 인덱스를 정수로 입력하세요.";
+			cin >> inputInt;
+
+			texts.erase(find(texts.begin(), texts.end(), inputString));
+			list<string>::iterator it = texts.begin();
+
+			for (int i = 0; i < texts.size(); i++)
+			{
+				if (i == inputInt)
+				{
+					texts.insert(it, inputString);
+				}
+
+				it++;
+			}
+		}
+		else if (inputInt == 4)
+		{
+			for (string s : texts)
+			{
+				cout << s << endl;
+			}
+		}
+		else		
+		{
+			cout << "프로그램을 종료합니다." << endl;
+			break;
+		}
+	}
+}
