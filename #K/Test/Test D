@@ -1,0 +1,51 @@
+#include <iostream>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+// 학생들의 성적을 관리하는 간단한 시스템을 구현해보세요. 학생의 이름과 성적을 입력받아 저장한 후, 평균 성적을 계산하고 최고 성적을 받은 학생의 이름과 성적을 출력하는 프로그램을 작성하세요.
+int main()
+{
+	map<string, int> points;
+	string inputS;
+	int inputI;
+	int totalPoint = 0;
+	int averagePoint;
+
+	string firstStudent;
+	int maxpoint = 0;
+
+	cout << "성적을 추가합니다." << endl;
+
+	while (true)
+	{
+		cout << "학생의 이름을 입력하세요. esc를 입력시 종료합니다. ";
+		cin >> inputS;
+
+		if (inputS == "esc")
+		{
+			cout << "성적 추가를 종료합니다." << endl;
+			break;
+		}
+
+		cout << "성적을 입력하세요. ";
+		cin >> inputI;
+
+		points.insert({ inputS, inputI });
+	}
+
+	for (auto point : points)
+	{
+		if (point.second > maxpoint)
+		{
+			firstStudent = point.first;
+			maxpoint = point.second;
+		}
+
+		totalPoint += point.second;
+	}
+
+	averagePoint = totalPoint / points.size();
+	cout << "평균 점수는 " << averagePoint << "점입니다." << endl;
+	cout << "최고 점수를 받은 학생은 " << firstStudent << "이며 " << maxpoint << "점입니다." << endl;
+}
